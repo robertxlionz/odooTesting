@@ -58,11 +58,11 @@ class LockingModel(models.AbstractModel):
     # Locking
     #----------------------------------------------------------
 
-    @api.multi
+
     def lock(self):
         self.write({'locked_by': self.env.uid})
     
-    @api.multi
+
     def unlock(self):
         self.write({'locked_by': None})
 
@@ -70,7 +70,7 @@ class LockingModel(models.AbstractModel):
     def _check_lock_editor(self, lock_uid):
         return lock_uid in (self.env.uid, SUPERUSER_ID) or isinstance(self.env.uid, NoSecurityUid)
     
-    @api.multi
+
     def check_lock(self):
         for record in self:
             if record.locked_by.exists() and not self._check_lock_editor(record.locked_by.id):
@@ -93,13 +93,13 @@ class LockingModel(models.AbstractModel):
     # Create, Update, Delete
     #----------------------------------------------------------
 
-    @api.multi
+
     def _write(self, vals):
         self.check_lock()
         return super(LockingModel, self)._write(vals)
 
 
-    @api.multi
+
     def unlink(self):  
         self.check_lock()
         return super(LockingModel, self).unlink()

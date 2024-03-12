@@ -142,7 +142,7 @@ class Hierarchy(models.AbstractModel):
         records = self.browse(self._search(domain, limit=limit, access_rights_uid=name_get_uid))
         return models.lazy_name_get(records.sudo(name_get_uid or self.env.uid)) 
     
-    @api.multi
+
     def name_get(self):
         if self.env.context.get(self._name_path_context):
             res = []
@@ -161,7 +161,7 @@ class Hierarchy(models.AbstractModel):
     # Create, Update, Delete
     #----------------------------------------------------------
     
-    @api.multi
+
     def write(self, vals):
         if self._parent_path_store and self._rec_name_fallback() in vals:
             with self.env.norecompute():

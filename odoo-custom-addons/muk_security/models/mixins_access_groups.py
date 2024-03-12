@@ -87,7 +87,7 @@ class AccessGroupsModel(models.AbstractModel):
     # Helper
     #----------------------------------------------------------
 
-    @api.multi
+
     def _filter_access(self, operation):
         records = super(AccessGroupsModel, self)._filter_access(operation)
         return records.filter_access_groups(operation)
@@ -128,7 +128,7 @@ class AccessGroupsModel(models.AbstractModel):
         super(AccessGroupsModel, self)._apply_ir_rules(query, mode=mode)
         self._apply_access_groups(query, mode=mode)
         
-    @api.multi
+
     def _get_ids_without_access_groups(self, operation):
         sql_query = '''
             SELECT id 
@@ -158,7 +158,7 @@ class AccessGroupsModel(models.AbstractModel):
     # Function
     #----------------------------------------------------------
 
-    @api.multi
+
     def check_access(self, operation, raise_exception=False):
         res = super(AccessGroupsModel, self).check_access(operation, raise_exception)
         try:
@@ -172,7 +172,7 @@ class AccessGroupsModel(models.AbstractModel):
     # Security
     #----------------------------------------------------------
 
-    @api.multi
+
     def check_access_groups(self, operation):
         if self.env.user.id == SUPERUSER_ID or isinstance(self.env.uid, NoSecurityUid):
             return None
@@ -199,7 +199,7 @@ class AccessGroupsModel(models.AbstractModel):
                     'Please contact your system administrator.\n\n(Document type: %s, Operation: %s)'
                 ) % (self._description, operation))
                 
-    @api.multi
+
     def filter_access_groups(self, operation):
         if self.env.user.id == SUPERUSER_ID or isinstance(self.env.uid, NoSecurityUid):
             return self
@@ -225,12 +225,12 @@ class AccessGroupsModel(models.AbstractModel):
     # Create, Update, Delete 
     #----------------------------------------------------------
     
-    @api.multi
+
     def _write(self, vals):
         self.check_access_groups('write')
         return super(AccessGroupsModel, self)._write(vals)
 
-    @api.multi
+
     def unlink(self):
         self.check_access_groups('unlink')
         return super(AccessGroupsModel, self).unlink()
