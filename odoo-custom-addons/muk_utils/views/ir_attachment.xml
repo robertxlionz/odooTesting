@@ -63,11 +63,9 @@
         <xpath expr="//group[@name='description_group']" position="before">
         	 <group string="Storage" name="storage" groups="base.group_no_one">
                   <field name="datas" 
-                  readonly="1" 
-                  invisible="'datas' = False"/>
+                  readonly="1"/>
                   <field name="name" 
-                  readonly="1" 
-                  invisible="'name' = False"/>
+                  readonly="1"/>
               </group>
         </xpath>
     </field>
