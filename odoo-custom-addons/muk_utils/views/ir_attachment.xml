@@ -62,8 +62,12 @@
     <field name="arch" type="xml">
         <xpath expr="//group[@name='description_group']" position="before">
         	 <group string="Storage" name="storage" groups="base.group_no_one">
-                  <field name="db_datas" readonly="1" attrs="{'invisible':[('db_datas','=',False)]}"/>
-                  <field name="store_fname" readonly="1" attrs="{'invisible':[('store_fname','=',False)]}"/>
+                  <field name="db_datas" 
+                  readonly="1" 
+                  invisible="'db_datas' = False"/>
+                  <field name="store_fname" 
+                  readonly="1" 
+                  invisible="'store_fname' = False"/>
               </group>
         </xpath>
     </field>
