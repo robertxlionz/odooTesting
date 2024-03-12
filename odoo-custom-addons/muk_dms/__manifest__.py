@@ -23,7 +23,7 @@
 {
     "name": "MuK Documents", 
     "summary": """Document Management System""",
-    "version": '17',
+    "version": '17.0.1.2.1',
     "category": 'Document Management',   
     "license": "LGPL-3",
     "website": "http://www.mukit.at",
