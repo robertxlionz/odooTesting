@@ -89,7 +89,7 @@ class AccessModel(models.AbstractModel):
     # Read, View 
     #----------------------------------------------------------
     
-    @api.multi
+
     def _compute_permissions_read(self):
         records = self._filter_access('read')
         for record in records:
@@ -97,7 +97,7 @@ class AccessModel(models.AbstractModel):
         for record in self - records:
             record.update({'permission_read': False})
             
-    @api.multi
+
     def _compute_permissions_create(self):
         records = self._filter_access('create')
         for record in records:
@@ -105,7 +105,7 @@ class AccessModel(models.AbstractModel):
         for record in self - records:
             record.update({'permission_create': False})
             
-    @api.multi
+
     def _compute_permissions_write(self):
         records = self._filter_access('write')
         for record in records:
@@ -113,7 +113,7 @@ class AccessModel(models.AbstractModel):
         for record in self - records:
             record.update({'permission_write': False})
             
-    @api.multi
+
     def _compute_permissions_unlink(self):
         records = self._filter_access('unlink')
         for record in records:
