@@ -55,7 +55,6 @@ class Base(models.AbstractModel):
     def suspend_security(self, user=None):
         return self.sudo(user=NoSecurityUid(user or self.env.uid))
     
-    @api.multi
     def check_access_rule(self, operation):
         if isinstance(self.env.uid, NoSecurityUid):
             return None

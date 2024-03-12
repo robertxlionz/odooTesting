@@ -95,7 +95,6 @@ class Thumbnail(models.AbstractModel):
             path = get_resource_path('muk_dms', *folders, "file_unkown.svg")
         return path
     
-    @api.multi
     def _get_thumbnail_placeholder_name(self):
         return "folder.svg"
     
@@ -147,7 +146,6 @@ class Thumbnail(models.AbstractModel):
             )
         return super(Thumbnail, self).create(vals_list)
         
-    @api.multi
     def write(self, vals):
         tools.image_resize_images(vals, 
             big_name='custom_thumbnail',

@@ -106,7 +106,6 @@ class Storage(models.Model):
             files |= files.search(domain)
         files.action_migrate()
 
-    @api.multi
     def action_save_onboarding_storage_step(self):
         self.env.user.company_id.set_onboarding_step_done(
             'documents_onboarding_storage_state'

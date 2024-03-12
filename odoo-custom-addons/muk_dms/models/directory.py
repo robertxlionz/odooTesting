@@ -451,7 +451,6 @@ class Directory(models.Model):
                 records.write({'storage': self._convert_to_write(data).get('storage')})
         return res
 
-    @api.multi
     def unlink(self):
         if self and self.check_access('unlink', raise_exception=True):
             domain = [

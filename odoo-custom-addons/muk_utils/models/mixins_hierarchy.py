@@ -161,7 +161,6 @@ class Hierarchy(models.AbstractModel):
     # Create, Update, Delete
     #----------------------------------------------------------
     
-    @api.multi
     def write(self, vals):
         if self._parent_path_store and self._rec_name_fallback() in vals:
             with self.env.norecompute():
