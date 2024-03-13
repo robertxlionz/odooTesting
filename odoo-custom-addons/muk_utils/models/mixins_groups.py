@@ -77,6 +77,13 @@ class Groups(models.AbstractModel):
         string='Explicit Users',
     )
 
+    child_groups = fields.One2many(
+        comodel_name='muk_utils.mixins.groups',
+        inverse_name='parent_group',
+        string='Child Groups',
+    )
+
+
     @api.model
     def _add_magic_fields(self):
         super(Groups, self)._add_magic_fields()
