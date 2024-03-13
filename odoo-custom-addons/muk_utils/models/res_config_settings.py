@@ -26,19 +26,11 @@ class ResConfigSettings(models.TransientModel):
 
     _inherit = 'res.config.settings'
 
-    @api.model
-    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
-        res = super(ResConfigSettings, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
-        if view_type == 'form':
-            doc = etree.XML(res['arch'])
-            integration_div = etree.Element("div", {'name': 'integration'})
-            integration_div.tail = '\n    '  # To ensure proper indentation
-            for elem in doc.iter():
-                if elem.tag == 'div' and elem.get('name') == 'attachment_location':
-                    elem.addprevious(integration_div)
-                    break
-            res['arch'] = etree.tostring(doc, encoding='unicode')
-        return res
+    integration = """
+        <div name="integration">
+            <!-- Puedes agregar contenido aquí si es necesario -->
+        </div>
+    """
 
     #----------------------------------------------------------
     # Selections
