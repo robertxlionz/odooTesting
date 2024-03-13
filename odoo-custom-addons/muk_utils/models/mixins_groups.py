@@ -49,7 +49,7 @@ class Groups(models.AbstractModel):
         store=True)
     
     parent_group = fields.Many2one(
-        comodel_name='muk_utils.mixins.groups',
+        #comodel_name='muk_utils.mixins.groups',
         string='Parent Group', 
         ondelete='cascade', 
         auto_join=True,
@@ -57,13 +57,13 @@ class Groups(models.AbstractModel):
         automatic=True)
 
     child_groups = fields.One2many(
-        comodel_name='muk_utils.mixins.groups',
+        #comodel_name='muk_utils.mixins.groups',
         inverse_name='parent_group', 
         string='Child Groups',
         automatic=True)
 
     groups = fields.Many2many(
-        comodel_name='res.groups',
+        #comodel_name='res.groups',
         relation='muk_utils.mixins.groups_groups_rel',
         column1='gid',
         column2='rid',
@@ -71,7 +71,7 @@ class Groups(models.AbstractModel):
         automatic=True)
 
     explicit_users = fields.Many2many(
-        comodel_name='res.users',
+        #comodel_name='res.users',
         relation='muk_utils.mixins.groups_explicit_users_rel',
         column1='gid',
         column2='uid', 
@@ -79,7 +79,7 @@ class Groups(models.AbstractModel):
         automatic=True)
 
     users = fields.Many2many(
-        comodel_name='res.users',
+        #comodel_name='res.users',
         relation='muk_utils.mixins.groups_users_rel',
         column1='gid',
         column2='uid', 
