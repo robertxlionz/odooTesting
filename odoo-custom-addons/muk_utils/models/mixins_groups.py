@@ -48,6 +48,12 @@ class Groups(models.AbstractModel):
         string="Users",
         store=True)
     
+    parent_group = fields.Many2one(
+        comodel_name='muk_utils.mixins.groups',
+        string='Parent Group'
+    )
+
+
     @api.model
     def _add_magic_fields(self):
         super(Groups, self)._add_magic_fields()
@@ -124,8 +130,3 @@ class Groups(models.AbstractModel):
             users |= record.mapped('explicit_users')
             users |= record.mapped('parent_group.users')
             record.update({'users': users, 'count_users': len(users)})
-
-    @api.model
-    def init(self):
-        # Llamada al método _add_magic_fields en la inicialización del modelo.
-        self._add_magic_fields()
