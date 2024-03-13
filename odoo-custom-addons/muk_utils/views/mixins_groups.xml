@@ -57,7 +57,7 @@
 				</group>
 				<notebook>
 					<page name="Users" string="Users">
-						<field name="Users">
+						<field name="_compute_users">
 							<tree string="Users">
 								<field name="name" />
 								<field name="login" />
