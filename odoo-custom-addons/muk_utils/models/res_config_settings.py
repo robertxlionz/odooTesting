@@ -26,6 +26,20 @@ class ResConfigSettings(models.TransientModel):
 
     _inherit = 'res.config.settings'
 
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
+        res = super(ResConfigSettings, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
+        if view_type == 'form':
+            doc = etree.XML(res['arch'])
+            integration_div = etree.Element("div", {'name': 'integration'})
+            integration_div.tail = '\n    '  # To ensure proper indentation
+            for elem in doc.iter():
+                if elem.tag == 'div' and elem.get('name') == 'attachment_location':
+                    elem.addprevious(integration_div)
+                    break
+            res['arch'] = etree.tostring(doc, encoding='unicode')
+        return res
+
     #----------------------------------------------------------
     # Selections
     #----------------------------------------------------------
@@ -80,23 +94,3 @@ class ResConfigSettings(models.TransientModel):
         location = params.get_param('ir_attachment.location', 'file')
         for record in self:
             record.attachment_location_changed = location != self.attachment_location
-
-    @api.model
-    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
-        res = super(ResConfigSettings, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
-        if view_type == 'form':
-            doc = etree.XML(res['arch'])
-            root = doc.getroottree().getroot()
-            integration_div = None
-            for child in root:
-                if child.tag == 'div' and child.get('name') == 'integration':
-                    integration_div = child
-                    break
-            if integration_div is None:
-                raise ValueError("Parent view does not contain a div with name 'integration'")
-            else:
-                new_div = etree.Element("div", {'name': 'storage'})
-                new_div.text = "Storage"
-                integration_div.addnext(new_div)
-            res['arch'] = etree.tostring(doc, encoding='unicode')
-        return res
