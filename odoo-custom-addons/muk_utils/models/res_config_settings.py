@@ -86,10 +86,11 @@ class ResConfigSettings(models.TransientModel):
         res = super(ResConfigSettings, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
         if view_type == 'form':
             doc = etree.XML(res['arch'])
+            root = doc.getroottree().getroot()
             integration_div = None
-            for elem in doc.iter():
-                if elem.tag == 'div' and elem.get('name') == 'integration':
-                    integration_div = elem
+            for child in root:
+                if child.tag == 'div' and child.get('name') == 'integration':
+                    integration_div = child
                     break
             if integration_div is None:
                 raise ValueError("Parent view does not contain a div with name 'integration'")
