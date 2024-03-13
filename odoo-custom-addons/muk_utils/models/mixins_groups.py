@@ -61,6 +61,14 @@ class Groups(models.AbstractModel):
         string='Group Users',
     )
 
+    groups = fields.Many2many(
+        comodel_name='res.groups',
+        relation='muk_utils_mixins_groups_groups_rel',
+        column1='group_id',
+        column2='group_id',
+        string='Groups',
+    )
+
     @api.model
     def _add_magic_fields(self):
         super(Groups, self)._add_magic_fields()
