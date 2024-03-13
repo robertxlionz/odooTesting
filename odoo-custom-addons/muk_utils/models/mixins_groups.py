@@ -48,45 +48,52 @@ class Groups(models.AbstractModel):
         string="Users",
         store=True)
     
-    parent_group = fields.Many2one(
-        #comodel_name='muk_utils.mixins.groups',
-        string='Parent Group', 
-        ondelete='cascade', 
-        auto_join=True,
-        index=True,
-        automatic=True)
-
-    child_groups = fields.One2many(
-        #comodel_name='muk_utils.mixins.groups',
-        inverse_name='parent_group', 
-        string='Child Groups',
-        automatic=True)
-
-    groups = fields.Many2many(
-        #comodel_name='res.groups',
-        relation='muk_utils.mixins.groups_groups_rel',
-        column1='gid',
-        column2='rid',
-        string='Groups',
-        automatic=True)
-
-    explicit_users = fields.Many2many(
-        #comodel_name='res.users',
-        relation='muk_utils.mixins.groups_explicit_users_rel',
-        column1='gid',
-        column2='uid', 
-        string='Explicit Users',
-        automatic=True)
-
-    users = fields.Many2many(
-        #comodel_name='res.users',
-        relation='muk_utils.mixins.groups_users_rel',
-        column1='gid',
-        column2='uid', 
-        string='Group Users',
-        compute='_compute_users', 
-        store=True,
-        automatic=True)
+    @api.model
+    def _add_magic_fields(self):
+        super(Groups, self)._add_magic_fields()
+        def add(name, field):
+            if name not in self._fields:
+                self._add_field(name, field)
+        add('parent_group', fields.Many2one(
+            _module=self._module,
+            comodel_name=self._name,
+            string='Parent Group', 
+            ondelete='cascade', 
+            auto_join=True,
+            index=True,
+            automatic=True))
+        add('child_groups', fields.One2many(
+            _module=self._module,
+            comodel_name=self._name,
+            inverse_name='parent_group', 
+            string='Child Groups',
+            automatic=True))
+        add('groups', fields.Many2many(
+            _module=self._module,
+            comodel_name='res.groups',
+            relation='%s_groups_rel' % (self._table),
+            column1='gid',
+            column2='rid',
+            string='Groups',
+            automatic=True))
+        add('explicit_users', fields.Many2many(
+            _module=self._module,
+            comodel_name='res.users',
+            relation='%s_explicit_users_rel' % (self._table),
+            column1='gid',
+            column2='uid', 
+            string='Explicit Users',
+            automatic=True))
+        add('users', fields.Many2many(
+            _module=self._module,
+            comodel_name='res.users',
+            relation='%s_users_rel' % (self._table),
+            column1='gid',
+            column2='uid', 
+            string='Group Users',
+            compute='_compute_users', 
+            store=True,
+            automatic=True))
     
     _sql_constraints = [
         ('name_uniq', 'unique (name)', 'The name of the group must be unique!')
