@@ -113,8 +113,7 @@
 	                <page string="Domain Settings" name='domain' autofocus="autofocus">
 						<field name="domain" widget="domain" options="{'model': 'model_name'}" />
 	                </page>
-	                <page string="Code Settings" name='code' autofocus="autofocus"
-	                	attrs="{'invisible': [('state', '!=', 'code')]}">
+	                <page string="Code Settings" name='code' autofocus="autofocus">
 						<field name="code" widget="ace" options="{'mode': 'python'}" 
 							placeholder="Enter Python code here. Help about Python expression is available in the help tab of this document."/>
 	                </page>
