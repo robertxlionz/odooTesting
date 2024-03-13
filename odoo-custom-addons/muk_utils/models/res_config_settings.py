@@ -26,12 +26,6 @@ class ResConfigSettings(models.TransientModel):
 
     _inherit = 'res.config.settings'
 
-    integration = """
-        <div name="integration">
-            <!-- Puedes agregar contenido aquí si es necesario -->
-        </div>
-    """
-
     #----------------------------------------------------------
     # Selections
     #----------------------------------------------------------
