@@ -86,8 +86,7 @@
 		            </group>
 		        </group>
 		        <notebook>
-	                <page string="Time Settings" name='time' autofocus="autofocus"
-	                    attrs="{'invisible': [('state', '!=', 'time')]}">
+	                <page string="Time Settings" name='time' autofocus="autofocus">
 	                    <group>
 			                <group>
 				                <field name="time_field"/>
@@ -98,25 +97,20 @@
 				            </group>
 			            </group>
 	                </page>
-	                <page string="Size Settings" name='size' autofocus="autofocus"
-	                    attrs="{'invisible': [('state', '!=', 'size')]}">
+	                <page string="Size Settings" name='size' autofocus="autofocus">
 						<group>
 			                <group>
 				                <field name="size_type"/>
 				            </group>
 			                <group>
-				                <field name="size_parameter" 
-				                	attrs="{'invisible': [('size_type', '!=', 'parameter')]}"/>
-				                <field name="size_parameter_value" 
-				                	attrs="{'invisible': [('size_type', '!=', 'parameter')]}"/>
-				                <field name="size" 
-				                	attrs="{'invisible': [('size_type', '!=', 'fixed')]}"/>
+				                <field name="size_parameter"/>
+				                <field name="size_parameter_value"/>
+				                <field name="size"/>
 				                <field name="size_order"/> 
 				            </group>
 			            </group>
 	                </page>
-	                <page string="Domain Settings" name='domain' autofocus="autofocus"
-	                	attrs="{'invisible': [('state', '!=', 'domain')]}">
+	                <page string="Domain Settings" name='domain' autofocus="autofocus">
 						<field name="domain" widget="domain" options="{'model': 'model_name'}" />
 	                </page>
 	                <page string="Code Settings" name='code' autofocus="autofocus"
@@ -124,7 +118,7 @@
 						<field name="code" widget="ace" options="{'mode': 'python'}" 
 							placeholder="Enter Python code here. Help about Python expression is available in the help tab of this document."/>
 	                </page>
-	                <page string="Help" attrs="{'invisible': [('state', '!=', 'code')]}">
+	                <page string="Help">
                         <group>
                             <div style="margin-top: 4px;">
                                 <h3>Help with Python expressions</h3>
