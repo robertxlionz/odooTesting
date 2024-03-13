@@ -319,9 +319,9 @@
         <!--default alias for leads-->
         <record id="mail_alias_lead_info_helpdesk" model="mail.alias">
             <field name="alias_name">help</field>
-            <field name="alias_model_id" ref="model.helpdesk.ticket" />
-            <field name="alias_user_id" ref="base.user.admin" />
-            <field name="alias_parent_model_id" ref="model.helpdesk.ticket.team" />
+            <field name="alias_model_id" ref="models.helpdesk_ticket" />
+            <field name="alias_user_id" ref="base.user_admin" />
+            <field name="alias_parent_model_id" ref="models.helpdesk_ticket_team" />
         </record>
         <!-- Helpdesk Ticket-related subtypes for messaging / Chatter -->
         <record id="hlp_tck_created" model="mail.message.subtype">
