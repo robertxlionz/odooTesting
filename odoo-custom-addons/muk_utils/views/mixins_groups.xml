@@ -49,15 +49,15 @@
 				</div>
 				<group name="group" string="Group">
 					<group>
-						<field name="parent_path" />
+						<field name="_parent_name" />
 					</group>
 					<group>
 						<field name="count_users" />
 					</group>
 				</group>
 				<notebook>
-					<page name="users" string="Users">
-						<field name="users">
+					<page name="Users" string="Users">
+						<field name="Users">
 							<tree string="Users">
 								<field name="name" />
 								<field name="login" />
