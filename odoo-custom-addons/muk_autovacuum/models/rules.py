@@ -31,7 +31,7 @@ from pytz import timezone
 from odoo import _
 from odoo import models, api, fields
 from odoo.exceptions import ValidationError
-from odoo.exceptions import Warning
+from odoo.exceptions import warnings
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 from odoo.tools.safe_eval import safe_eval, test_python_expr
