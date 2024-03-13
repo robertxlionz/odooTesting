@@ -80,21 +80,3 @@ class ResConfigSettings(models.TransientModel):
         location = params.get_param('ir_attachment.location', 'file')
         for record in self:
             record.attachment_location_changed = location != self.attachment_location
-
-    @api.model
-    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
-        res = super(ResConfigSettings, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
-        if view_type == 'form':
-            doc = etree.XML(res['arch'])
-            settings_view = doc.xpath("//div[@name='integration']")  # Busca el div con nombre 'integration'
-            if settings_view:
-                attachment_storage_div = etree.Element('div', {'class': 'row mt16 o_settings_container', 'name': 'storage'})  # Crea el nuevo div para el almacenamiento de adjuntos
-                col_div = etree.SubElement(attachment_storage_div, 'div', {'class': 'col-12 col-lg-6 o_setting_box'})
-                left_pane_div = etree.SubElement(col_div, 'div', {'class': 'o_setting_left_pane'})
-                right_pane_div = etree.SubElement(col_div, 'div', {'class': 'o_setting_right_pane'})
-                label = etree.SubElement(right_pane_div, 'label', {'for': 'attachment_location'})
-                label.text = 'Attachment storage location'
-                # Aquí puedes agregar más elementos según tus necesidades
-                settings_view[0].addnext(attachment_storage_div)  # Agrega el nuevo div después del div con nombre 'integration'
-                res['arch'] = etree.tostring(doc)
-        return res
