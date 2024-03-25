@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="directory_tags_form_view" model="ir.ui.view">
+        <field name="name">directory.tags.form.view</field>
+        <field name="model">directory.tags</field>
+        <field name="arch" type="xml">
+            <form string="Directory Tags">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="directory_tags_tree_view" model="ir.ui.view">
+        <field name="name">directory.tags.tree.view</field>
+        <field name="model">directory.tags</field>
+        <field name="arch" type="xml">
+            <tree string="Directory Tags">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="directory_tags_action" model="ir.actions.act_window">
+        <field name="name">Directory Tags</field>
+        <field name="res_model">directory.tags</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create a New Directory Tag</p>
+        </field>
+    </record>
+    <menuitem id="menu_directory_tags" name="Directory Tags" parent="sh_document_management.menu_configuration" action="directory_tags_action" sequence="1" />
+</odoo>

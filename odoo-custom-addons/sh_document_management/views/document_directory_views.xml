@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="directory_form_view" model="ir.ui.view">
+        <field name="name">directory.form.view</field>
+        <field name="model">document.directory</field>
+        <field name="arch" type="xml">
+            <form string="Directory">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_view_files" class="oe_stat_button"
+                            icon="fa-file" title="Files">
+                            <field name="files" widget="statinfo" string="Files" />
+                        </button>
+                        <button type="object" name="action_view_sub_directory"
+                            class="oe_stat_button" icon="fa-folder">
+                            <field name="sub_directories" widget="statinfo" string="Sub Directories" />
+                        </button>
+                    </div>
+                    <field name="image_medium" widget="image" class="oe_avatar" />
+                    <div class="oe_title">
+                        <label class="oe_edit_only" for="name" string="Directory Name" />
+                        <h2>
+                            <field name="name" />
+                        </h2>
+                        <field name="company_id" invisible="1" />
+                    </div>
+                    <group string="Directory Details">
+                        <group>
+                            <field name="parent_id" />
+                            <field name="file_count" string="Files" />
+                            <field name="sub_directory_count" string="Sub Directories" />
+                        </group>
+                        <group>
+                            <field name="directory_tag_ids" widget="many2many_tags"
+                                options="{'color_field': 'color', 'no_create_edit': True}"> </field>
+                            <field
+                                name="sh_user_ids" widget="many2many_tags" />
+                            <field
+                                name="sh_access_token" invisible="1" />
+
+                            <field
+                                name="sh_share_url" widget="CopyClipboardChar" readonly="1"
+                                invisible="1" />
+                        </group>
+                    </group>
+                    <div class="row">
+                        <div class="col-11" />
+                        <div class="col-1">
+                            <button type="object" name="action_share_directory"
+                                class="btn btn-primary sh_share_btn" icon="fa-share-alt"
+                                title="Share" />
+                        </div>
+                    </div>
+                    <group string="Visible Directory Setting">
+                        <group>
+                            <field name="visible_directory" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Files">
+                            <field name="attachment_ids" widget="many2many">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="res_model" />
+                                    <field name="res_field" />
+                                    <field name="res_id" />
+                                    <field name="type" />
+                                    <field name="create_uid" />
+                                    <field name="create_date" />
+                                    <field name="datas" filename="name" widget="download" />
+                                    <field name="directory_id" invisible="1" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Sub Directories">
+                            <field name="directory_ids" widget="many2many" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="directory_tree_view" model="ir.ui.view">
+        <field name="name">directory.tree.view</field>
+        <field name="model">document.directory</field>
+        <field name="arch" type="xml">
+            <tree string="Directory">
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <button type="object" string="View Related Files" name="action_view"
+                    class="oe_highlight" />
+            </tree>
+        </field>
+    </record>
+    <record id="directory_search_view" model="ir.ui.view">
+        <field name="name">directory.search.view</field>
+        <field name="model">document.directory</field>
+        <field name="arch" type="xml">
+            <search string="Directory">
+                <field name="name" />
+                <field name="parent_id" />
+                <field name="create_uid" />
+                <field name="create_date" />
+                <filter string="Visible Directory" name="visible"
+                    domain="[('visible_directory', '=', True)]" />
+                <filter string="My Directory" name="my_directory"
+                    domain="[('create_uid', '=', uid)]" />
+                <group expand="0" string="Group By">
+                    <filter string="Created By" name="user" context="{'group_by':'create_uid'}" />
+                    <filter string="Parent Directory" name="parent"
+                        context="{'group_by':'parent_id'}" />
+                    <filter string="Create Date" name="create" context="{'group_by':'create_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="directory_kanban">
+        <field name="name">directory.kanban</field>
+        <field name="model">document.directory</field>
+        <field name="arch" type="xml">
+            <kanban on_create="quick_create">
+                <field name="id" />
+                <field name="image_small" />
+                <field name="image_medium" />
+                <field name="name" />
+                <field name="parent_id" />
+                <field name="files" />
+                <field name="sub_directories" />
+                <field name="directory_tag_ids" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img
+                                    t-att-src="kanban_image('document.directory', 'image_medium', record.id.raw_value)"
+                                    alt="Directory" />
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name" />
+                                    <small t-if="record.name.value"></small>
+                                </strong>
+                                <div>
+                                    <button type="object" name="action_view_files"
+                                        class="btn btn-primary me-2">
+                                        <field name="files" widget="statinfo" string=" Files">
+                                            <i class="fa fa-file" title=" Files" />
+                                        </field>
+                                    </button>
+                                    <button type="object" name="action_view_sub_directory"
+                                        icon="fa-folder" class="btn btn-primary ms-2">
+                                        <field name="sub_directories" widget="statinfo"
+                                            string=" Sub Directories" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="directory_action" model="ir.actions.act_window">
+        <field name="name">Directories</field>
+        <field name="res_model">document.directory</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_visible': 1}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create a New Directory</p>
+        </field>
+    </record>
+
+    <record id="sequence_document_directory" model="ir.sequence">
+        <field name="name">Document Directory Sequence</field>
+        <field name="code">document.directory</field>
+        <field eval="1" name="number_next" />
+        <field eval="1" name="number_increment" />
+    </record>
+    <menuitem id="directory_menu" name="Document Directory"
+        parent="sh_document_management.menu_document" sequence="2" />
+    <menuitem id="directory_main_menu" name="Directory" parent="directory_menu"
+        action="directory_action" sequence="2" />
+    <record id="sh_docuemnt_attachment_view" model="ir.ui.view">
+        <field name="name">ir.attachment</field>
+        <field name="model">ir.attachment</field>
+        <field name="inherit_id" ref="base.view_attachment_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mimetype']" position="after">
+                <field name="sh_document_as_zip" invisible="1" />
+            </xpath>
+        </field>
+    </record>
+    <record id="sh_download_zip_multi_action" model="ir.actions.server">
+        <field name="name">Export as zip</field>
+        <field name="model_id" ref="sh_document_management.model_document_directory" />
+        <field name="binding_model_id" ref="sh_document_management.model_document_directory" />
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code"> action = model.action_download_as_zip()</field>
+    </record>
+    <record id="sh_download_zip_multi_action_attachment" model="ir.actions.server">
+        <field name="name">Export as zip</field>
+        <field name="model_id" ref="base.model_ir_attachment" />
+        <field name="binding_model_id" ref="base.model_ir_attachment" />
+        <field name="state">code</field>
+        <field name="binding_view_types">list</field>
+        <field name="code"> action = model.action_download_as_zip_attachment()</field>
+    </record>
+</odoo>

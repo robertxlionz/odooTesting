@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_document_tags,access_document_tags,model_document_tags,sh_document_management.document_group_user,1,1,1,1
+access_directory_tags,access_directory_tags,model_directory_tags,sh_document_management.document_group_user,1,1,1,1
+access_document_directory,access_document_directory,model_document_directory,sh_document_management.document_group_user,1,1,1,1
+sh_document_management.access_sh_share_directories,access_sh_share_directories,sh_document_management.model_sh_share_directories,base.group_user,1,1,1,1

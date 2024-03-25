@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Shared Directory for Download Attachments	Template -->
+    <record id="sh_document_management_share_directory_url_template" model="mail.template">
+        <field name="name">Your Shared Directory for Download Attachments </field>
+        <field name="model_id" ref="model_document_directory" />
+        <field name="partner_to"></field>
+        <field name="subject">Check and Download Attachments for Directory ({{object.name}})</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;"> Hello There, <br />
+                <br /> <i>You can Download
+                your
+                    Attachmets from Given Link : </i><br /> <br />
+
+                <div style="text-align:center;">
+                    <i>
+                        <a
+                            t-attf-href="{{object.sh_share_url}}" target="_blank"
+                            style="font-weight: bold; text-decoration: None;">Click To
+                            Download</a>
+                    </i>
+                </div>
+                <br /><br />
+                Thank you. </div>
+        </field>
+        <field name="auto_delete" eval="True" />
+    </record>
+
+    <!-- Shared Document for Download Attachments Template -->
+    <record id="sh_document_management_share_document_url_template" model="mail.template">
+        <field name="name">Your Shared Document for Download</field>
+        <field name="model_id" ref="model_ir_attachment" />
+        <field name="partner_to"></field>
+        <field name="subject">Check and Download Document ({{object.name}})</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;"> Hello There, <br />
+                <br /> <i>You can Download
+                your
+                    Attachmets from Given Link : </i><br /> <br />
+
+                <div style="text-align:center;">
+                    <i>
+                        <a
+                            t-attf-href="{{object.sh_share_url}}" target="_blank"
+                            style="font-weight: bold; text-decoration: None;">Click To
+                            Download</a>
+                    </i>
+                </div>
+                <br />
+                <br />
+                Thank you. </div>
+        </field>
+        <field name="auto_delete" eval="True" />
+    </record>
+</odoo>

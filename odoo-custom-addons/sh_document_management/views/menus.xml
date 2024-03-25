@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_all_documents" model="ir.actions.act_window">
+        <field name="name">All Documents</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.attachment</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('mimetype','not in',['text/css','application/javascript','text/scss','text/plain','text/x-po','application/json','text/x-python'])]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new document
+            </p>
+            <p>
+                Also you will find here all the related documents and download it by clicking on any individual document.
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_document" name="Documents" groups="sh_document_management.document_group_user" web_icon="sh_document_management,static/description/menu_icon.png" />
+    <menuitem id="menu_all_document" name="All Documents" parent="menu_document" sequence="1" />
+    <menuitem id="sub_menu_all_document" name="All Documents" parent="menu_all_document" action="action_all_documents" />
+    <menuitem id="menu_configuration" name="Configuration" parent="menu_document" sequence="3" />
+</odoo>
