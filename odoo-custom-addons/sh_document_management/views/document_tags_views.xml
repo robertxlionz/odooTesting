@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="document_tags_form_view" model="ir.ui.view">
+        <field name="name">document.tags.form.view</field>
+        <field name="model">document.tags</field>
+        <field name="arch" type="xml">
+            <form string="Document Tags">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="document_tags_tree_view" model="ir.ui.view">
+        <field name="name">document.tags.tree.view</field>
+        <field name="model">document.tags</field>
+        <field name="arch" type="xml">
+            <tree string="Document Tags">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="document_tags_action" model="ir.actions.act_window">
+        <field name="name">Document Tags</field>
+        <field name="res_model">document.tags</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create a New Document Tag</p>
+        </field>
+    </record>
+    <menuitem id="menu_document_tags" name="Document Tags" parent="sh_document_management.menu_configuration" action="document_tags_action" sequence="2" />
+</odoo>

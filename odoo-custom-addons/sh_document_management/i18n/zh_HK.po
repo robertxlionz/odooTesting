@@ -1,0 +1,457 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_document_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-26 10:48+0000\n"
+"PO-Revision-Date: 2024-02-26 10:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__attachment_ids
+msgid " Files"
+msgstr " 文件"
+
+#. module: sh_document_management
+#: model:mail.template,body_html:sh_document_management.sh_document_management_share_document_url_template
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\"> Hello There, <br>\n"
+"                <br> <i>You can Download\n"
+"                your\n"
+"                    Attachmets from Given Link : </i><br> <br>\n"
+"\n"
+"                <div style=\"text-align:center;\">\n"
+"                    <i>\n"
+"                        <a t-attf-href=\"{{object.sh_share_url}}\" target=\"_blank\" style=\"font-weight: bold; text-decoration: None;\">Click To\n"
+"                            Download</a>\n"
+"                    </i>\n"
+"                </div>\n"
+"                <br>\n"
+"                <br>\n"
+"                Thank you. </div>\n"
+"        "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\"> 你好呀, <br>\n"
+"                <br> <i>您可以下載\n"
+"                你的\n"
+"                    給定鏈接的附件 : </i><br> <br>\n"
+"\n"
+"                <div style=\"text-align:center;\">\n"
+"                    <i>\n"
+"                        <a t-attf-href=\"{{object.sh_share_url}}\" target=\"_blank\" style=\"font-weight: bold; text-decoration: None;\">點擊\n"
+"                            下載</a>\n"
+"                    </i>\n"
+"                </div>\n"
+"                <br>\n"
+"                <br>\n"
+"                謝謝. </div>\n"
+"        "
+
+#. module: sh_document_management
+#: model:mail.template,body_html:sh_document_management.sh_document_management_share_directory_url_template
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\"> Hello There, <br>\n"
+"                <br> <i>You can Download\n"
+"                your\n"
+"                    Attachmets from Given Link : </i><br> <br>\n"
+"\n"
+"                <div style=\"text-align:center;\">\n"
+"                    <i>\n"
+"                        <a t-attf-href=\"{{object.sh_share_url}}\" target=\"_blank\" style=\"font-weight: bold; text-decoration: None;\">Click To\n"
+"                            Download</a>\n"
+"                    </i>\n"
+"                </div>\n"
+"                <br><br>\n"
+"                Thank you. </div>\n"
+"        "
+msgstr ""
+"<div style=\"margin: 0px; padding: 0px;\"> 你好呀, <br>\n"
+"                <br> <i>您可以下載\n"
+"                你的\n"
+"                    給定鏈接的附件 : </i><br> <br>\n"
+"\n"
+"                <div style=\"text-align:center;\">\n"
+"                    <i>\n"
+"                        <a t-attf-href=\"{{object.sh_share_url}}\" target=\"_blank\" style=\"font-weight: bold; text-decoration: None;\">點擊\n"
+"                            下載</a>\n"
+"                    </i>\n"
+"                </div>\n"
+"                <br><br>\n"
+"                謝謝. </div>\n"
+"        "
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_kanban
+msgid "<i class=\"fa fa-file\" title=\" Files\"/>"
+msgstr "<i class=\"fa fa-file\" title=\" Files\"/>"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__sh_access_token
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__access_token
+msgid "Access Token"
+msgstr "訪問令牌"
+
+#. module: sh_document_management
+#: model:ir.actions.act_window,name:sh_document_management.action_all_documents
+#: model:ir.ui.menu,name:sh_document_management.menu_all_document
+#: model:ir.ui.menu,name:sh_document_management.sub_menu_all_document
+msgid "All Documents"
+msgstr "所有文件"
+
+#. module: sh_document_management
+#: model_terms:ir.actions.act_window,help:sh_document_management.action_all_documents
+msgid ""
+"Also you will find here all the related documents and download it by "
+"clicking on any individual document."
+msgstr ""
+"另外，您將在這裡找到所有相關文檔，然後下載 "
+"點擊任何單獨的文檔."
+
+#. module: sh_document_management
+#: model:ir.model,name:sh_document_management.model_ir_attachment
+msgid "Attachment"
+msgstr "依戀"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.sh_share_directories_form_view
+msgid "Cancel"
+msgstr "取消"
+
+#. module: sh_document_management
+#: model:mail.template,subject:sh_document_management.sh_document_management_share_directory_url_template
+msgid "Check and Download Attachments for Directory ({{object.name}})"
+msgstr "檢查並下載目錄的附件（{{object.name}}"
+
+#. module: sh_document_management
+#: model:mail.template,subject:sh_document_management.sh_document_management_share_document_url_template
+msgid "Check and Download Document ({{object.name}})"
+msgstr "檢查並下載文檔（{{object.name}}"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_directory_tags__color
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__color
+#: model:ir.model.fields,field_description:sh_document_management.field_document_tags__color
+#: model:ir.model.fields,field_description:sh_document_management.field_ir_attachment__color
+msgid "Color Index"
+msgstr "顏色索引"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: sh_document_management
+#: model:ir.ui.menu,name:sh_document_management.menu_configuration
+msgid "Configuration"
+msgstr "配置"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_search_view
+msgid "Create Date"
+msgstr "創建日期"
+
+#. module: sh_document_management
+#: model_terms:ir.actions.act_window,help:sh_document_management.directory_action
+msgid "Create a New Directory"
+msgstr "創建一個新目錄"
+
+#. module: sh_document_management
+#: model_terms:ir.actions.act_window,help:sh_document_management.directory_tags_action
+msgid "Create a New Directory Tag"
+msgstr "創建一個新的目錄標籤"
+
+#. module: sh_document_management
+#: model_terms:ir.actions.act_window,help:sh_document_management.document_tags_action
+msgid "Create a New Document Tag"
+msgstr "創建一個新文檔標籤"
+
+#. module: sh_document_management
+#: model_terms:ir.actions.act_window,help:sh_document_management.action_all_documents
+msgid "Create a new document"
+msgstr "創建一個新文檔"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_search_view
+msgid "Created By"
+msgstr "由...製作"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_directory_tags__create_uid
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__create_uid
+#: model:ir.model.fields,field_description:sh_document_management.field_document_tags__create_uid
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__create_uid
+msgid "Created by"
+msgstr "由...製作"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_directory_tags__create_date
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__create_date
+#: model:ir.model.fields,field_description:sh_document_management.field_document_tags__create_date
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__create_date
+msgid "Created on"
+msgstr "創建於"
+
+#. module: sh_document_management
+#: model:ir.actions.server,name:sh_document_management.sh_delete_garbase_collection_data_ir_actions_server
+msgid "Delete Garbase Collection"
+msgstr "刪除garbase系列"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__directory_tag_ids
+msgid "Diractory Tags"
+msgstr "臟標籤"
+
+#. module: sh_document_management
+#: model:ir.actions.act_window,name:sh_document_management.directory_action
+msgid "Directories"
+msgstr "目錄"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__directory_ids
+#: model:ir.model.fields,field_description:sh_document_management.field_ir_attachment__directory_id
+#: model:ir.ui.menu,name:sh_document_management.directory_main_menu
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_form_view
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_kanban
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_search_view
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_tree_view
+msgid "Directory"
+msgstr "目錄"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_form_view
+msgid "Directory Details"
+msgstr "目錄詳細信息"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_form_view
+msgid "Directory Name"
+msgstr "目錄名稱"
+
+#. module: sh_document_management
+#: model:ir.actions.act_window,name:sh_document_management.directory_tags_action
+#: model:ir.model,name:sh_document_management.model_directory_tags
+#: model:ir.ui.menu,name:sh_document_management.menu_directory_tags
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_tags_form_view
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_tags_tree_view
+#: model_terms:ir.ui.view,arch_db:sh_document_management.sh_share_directories_form_view
+msgid "Directory Tags"
+msgstr "目錄標籤"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_directory_tags__display_name
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__display_name
+#: model:ir.model.fields,field_description:sh_document_management.field_document_tags__display_name
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: sh_document_management
+#: model:ir.module.category,description:sh_document_management.module_document_category
+#: model:ir.module.category,name:sh_document_management.module_document_category
+msgid "Document"
+msgstr "文件"
+
+#. module: sh_document_management
+#: model:ir.model,name:sh_document_management.model_document_directory
+#: model:ir.ui.menu,name:sh_document_management.directory_menu
+msgid "Document Directory"
+msgstr "文檔目錄"
+
+#. module: sh_document_management
+#: model:ir.actions.act_window,name:sh_document_management.document_tags_action
+#: model:ir.model,name:sh_document_management.model_document_tags
+#: model:ir.model.fields,field_description:sh_document_management.field_ir_attachment__document_tags
+#: model:ir.ui.menu,name:sh_document_management.menu_document_tags
+#: model_terms:ir.ui.view,arch_db:sh_document_management.document_tags_form_view
+#: model_terms:ir.ui.view,arch_db:sh_document_management.document_tags_tree_view
+msgid "Document Tags"
+msgstr "文檔標籤"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_ir_attachment__sh_document_as_zip
+msgid "Document as zip"
+msgstr "文檔作為拉鍊"
+
+#. module: sh_document_management
+#: model:ir.ui.menu,name:sh_document_management.menu_document
+msgid "Documents"
+msgstr "文件"
+
+#. module: sh_document_management
+#: model:ir.actions.server,name:sh_document_management.sh_download_zip_multi_action
+#: model:ir.actions.server,name:sh_document_management.sh_download_zip_multi_action_attachment
+msgid "Export as zip"
+msgstr "作為拉鍊出口"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__file_count
+msgid "File Count"
+msgstr "文件計數"
+
+#. module: sh_document_management
+#. odoo-python
+#: code:addons/sh_document_management/models/document_directory.py:0
+#: code:addons/sh_document_management/models/document_directory.py:0
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__files
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_form_view
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_kanban
+#, python-format
+msgid "Files"
+msgstr "文件"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_search_view
+msgid "Group By"
+msgstr "通過...分組"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_directory_tags__id
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__id
+#: model:ir.model.fields,field_description:sh_document_management.field_document_tags__id
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__id
+msgid "ID"
+msgstr "ID"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__image_medium
+msgid "Image"
+msgstr "圖像"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_directory_tags__write_uid
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__write_uid
+#: model:ir.model.fields,field_description:sh_document_management.field_document_tags__write_uid
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__write_uid
+msgid "Last Updated by"
+msgstr "最後更新"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_directory_tags__write_date
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__write_date
+#: model:ir.model.fields,field_description:sh_document_management.field_document_tags__write_date
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__write_date
+msgid "Last Updated on"
+msgstr "上次更新"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__sh_share_url
+#: model:ir.model.fields,field_description:sh_document_management.field_ir_attachment__sh_share_url
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__sh_share_url
+msgid "Link"
+msgstr "關聯"
+
+#. module: sh_document_management
+#: model:res.groups,name:sh_document_management.document_group_manager
+msgid "Manager"
+msgstr "主管"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_search_view
+msgid "My Directory"
+msgstr "我的目錄"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_directory_tags__name
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__name
+#: model:ir.model.fields,field_description:sh_document_management.field_document_tags__name
+#: model:ir.model.fields,field_description:sh_document_management.field_sh_share_directories__sh_name
+msgid "Name"
+msgstr "姓名"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__parent_id
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_search_view
+msgid "Parent Directory"
+msgstr "父目錄"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__sequence
+msgid "Sequence"
+msgstr "順序"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.attachment_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_form_view
+msgid "Share"
+msgstr "分享"
+
+#. module: sh_document_management
+#: model:ir.model,name:sh_document_management.model_sh_share_directories
+msgid "Share Directories"
+msgstr "共享目錄"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__image_small
+msgid "Small-sized image"
+msgstr "小型圖像"
+
+#. module: sh_document_management
+#: model:ir.model.fields,help:sh_document_management.field_document_directory__image_small
+msgid ""
+"Small-sized image of the product. It is automatically resized as a 64x64px "
+"image, with aspect ratio preserved. Use this field anywhere a small image is"
+" required."
+msgstr ""
+"產品的小型圖像。它自動調整為64x64px "
+"圖像，保留縱橫比。在任何地方使用此字段，一個小圖像是"
+" 必需的."
+
+#. module: sh_document_management
+#. odoo-python
+#: code:addons/sh_document_management/models/document_directory.py:0
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__sub_directories
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_form_view
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_kanban
+#, python-format
+msgid "Sub Directories"
+msgstr "子目錄"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__sub_directory_count
+msgid "Sub Directory Count"
+msgstr "子目錄計數"
+
+#. module: sh_document_management
+#: model:res.groups,name:sh_document_management.document_group_user
+msgid "User"
+msgstr "用戶"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__sh_user_ids
+#: model:ir.model.fields,field_description:sh_document_management.field_ir_attachment__sh_user_ids
+msgid "Users"
+msgstr "用戶"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_tree_view
+msgid "View Related Files"
+msgstr "查看相關文件"
+
+#. module: sh_document_management
+#: model:ir.model.fields,field_description:sh_document_management.field_document_directory__visible_directory
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_search_view
+msgid "Visible Directory"
+msgstr "可見目錄"
+
+#. module: sh_document_management
+#: model_terms:ir.ui.view,arch_db:sh_document_management.directory_form_view
+msgid "Visible Directory Setting"
+msgstr "可見目錄設置"
+
+#. module: sh_document_management
+#: model:mail.template,name:sh_document_management.sh_document_management_share_directory_url_template
+msgid "Your Shared Directory for Download Attachments "
+msgstr "您的共享目錄用於下載附件"
+
+#. module: sh_document_management
+#: model:mail.template,name:sh_document_management.sh_document_management_share_document_url_template
+msgid "Your Shared Document for Download"
+msgstr "您共享的文檔以供下載"
